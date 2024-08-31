@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxtp.LoginController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <AnchorPane prefHeight="400.0" prefWidth="300.0" styleClass="left-form" stylesheets="@../../../css/login.css">
+               <children>
+                  <!-- Add ImageView for the icon -->
+                  <ImageView fx:id="iconImageView" fitHeight="108.0" fitWidth="115.0" layoutX="102.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
+                     <image>
+                        <Image url="@icons/vehicles.png" />
+                     </image>
+                  </ImageView>
+
+                  <!-- Label with the text -->
+                  <Label layoutX="19.0" layoutY="238.0" prefHeight="51.0" prefWidth="264.0" styleClass="management" stylesheets="@../../../css/login.css" text="Management de Covoiturage" textFill="WHITE" AnchorPane.bottomAnchor="117.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="238.0">
+                     <font>
+                        <Font name="Tahoma" size="20.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+            <AnchorPane layoutX="300.0" prefHeight="400.0" prefWidth="306.0" styleClass="right-form" stylesheets="@../../../css/login.css">
+               <children>
+                  <Label layoutX="33.0" layoutY="70.0" prefHeight="31.0" prefWidth="162.0" text="Bienvenue" textFill="#2b794c" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="105.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="emailField" layoutX="70.0" layoutY="135.0" prefHeight="37.0" prefWidth="187.0" promptText="Email" styleClass="textfield" stylesheets="@../../../css/login.css" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="43.0" />
+<!--                  add-->
+                  <TextField fx:id="passwordTextField" layoutX="71.0" layoutY="182.0" prefHeight="37.0" prefWidth="187.0" promptText="Password" styleClass="textfield" stylesheets="@../../../css/login.css" AnchorPane.leftAnchor="71.0" AnchorPane.rightAnchor="42.5" />
+<!--                  -->
+                  <PasswordField fx:id="passwordField" layoutX="71.0" layoutY="182.0" prefHeight="37.0" prefWidth="187.0" promptText="Password" styleClass="textfield" stylesheets="@../../../css/login.css" AnchorPane.leftAnchor="71.0" AnchorPane.rightAnchor="42.5" />
+                  <Button layoutX="129.0" layoutY="268.0" onAction="#handleLoginButtonAction" prefHeight="37.0" prefWidth="64.0" styleClass="login-btn" stylesheets="@../../../css/login.css" text="Login" AnchorPane.leftAnchor="129.0" AnchorPane.rightAnchor="107.0" />
+                  <Label fx:id="errorMessage" textFill="RED" />
+                  <Button layoutX="171.0" layoutY="356.5" mnemonicParsing="false" onAction="#handleCreateAccountButtonAction" prefHeight="34.0" prefWidth="127.0" styleClass="login-btn" text="Creer un Compte" AnchorPane.bottomAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="356.0" />
+                  <Text layoutX="45.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pas de Compte?">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="252.0" layoutY="1.0" mnemonicParsing="false" onAction="#handleCloseButton" styleClass="close" stylesheets="@../../../css/login.css" text="Close" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <CheckBox fx:id="showPasswordCheckBox" layoutX="70.0" layoutY="229.0" mnemonicParsing="false" text="voir mot de passe" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

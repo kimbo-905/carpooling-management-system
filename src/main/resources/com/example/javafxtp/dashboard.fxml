@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxtp.HelloController">
+   <children>
+      <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
+
+         <children>
+            <BorderPane prefHeight="600.0" prefWidth="1600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane prefHeight="45.0" prefWidth="200.0" styleClass="semi-top-form" stylesheets="@../../../css/dashboard.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="78.0" layoutY="-77.0" prefHeight="35.0" prefWidth="1100.0" styleClass="top-form" stylesheets="@../../../css/dashboard.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+<!--+++++++++++++++++++++++++++++++++++++++++++ icon +++++++++++++++++++++++++++++++++++++++++++-->
+                              <ImageView fx:id="managementIcon" fitHeight="45.0" fitWidth="45.0" layoutX="27.0">
+                                 <image>
+                                    <Image url="@icons/vehicles.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="81.0" layoutY="6.0" text="Management  Covoiturage">
+                                 <font>
+                                    <Font size="27.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="1528.0" mnemonicParsing="false" onAction="#close" prefHeight="35.0" prefWidth="72.0" styleClass="close" stylesheets="@../../../css/dashboard.css" text="x" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <Button layoutX="1297.0" mnemonicParsing="false" onAction="#minimize" prefHeight="35.0" prefWidth="72.0" styleClass="minimize" text="-" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <left>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane prefHeight="555.0" prefWidth="234.0" styleClass="nav-form" stylesheets="@../../../css/dashboard.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label layoutX="40.0" layoutY="54.0" text="Bienvenue" textFill="WHITE">
+                                 <font>
+                                    <Font size="27.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="currentUserLabel" layoutX="40.0" layoutY="87.0" text="User" textFill="WHITE">
+                                 <font>
+                                    <Font size="27.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="101.5" layoutX="79.0" layoutY="131.0" startX="-64.0" AnchorPane.leftAnchor="14.5" AnchorPane.rightAnchor="19.0" />
+                              <Button fx:id="home_btn" layoutX="11.0" layoutY="147.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="187.0" styleClass="nav-btn" stylesheets="@../../../css/dashboard.css" text="Home" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="2.0" />
+                              <Button fx:id="addUser_btn" layoutX="35.0" layoutY="198.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="164.0" styleClass="nav-btn" stylesheets="@../../../css/dashboard.css" text="Utilisateur" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="1.0" />
+                              <Button fx:id="addTrajet_btn" layoutX="35.0" layoutY="305.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="165.0" styleClass="nav-btn" stylesheets="@../../../css/dashboard.css" text="Trajet" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="0.0" />
+                              <Button fx:id="addVehicule_btn" layoutX="35.0" layoutY="250.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="164.0" styleClass="nav-btn" stylesheets="@../../../css/dashboard.css" text="Vehicule" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="1.0" />
+                              <Button fx:id="addReservation_btn" layoutX="35.0" layoutY="361.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="164.0" styleClass="nav-btn" stylesheets="@../../../css/dashboard.css" text="Reservation" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="1.0" />
+                              <Button fx:id="logoutButton" layoutX="9.0" layoutY="510.0" mnemonicParsing="false" onAction="#handleLogoutButtonAction" prefHeight="35.0" prefWidth="109.0" styleClass="logout" stylesheets="@../../../css/dashboard.css" text="Se Deconnecter" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="9.0" />
+                              <ImageView fx:id="managementIcon1" fitHeight="35.0" fitWidth="34.0" layoutX="8.0" layoutY="145.0">
+                                 <image>
+                                    <Image url="@icons/home.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="managementIcon11" fitHeight="36.0" fitWidth="35.0" layoutX="8.0" layoutY="198.0">
+                                 <image>
+                                    <Image url="@icons/user.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="managementIcon111" fitHeight="36.0" fitWidth="35.0" layoutX="6.0" layoutY="249.0">
+                                 <image>
+                                    <Image url="@icons/bus.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="managementIcon112" fitHeight="36.0" fitWidth="35.0" layoutX="8.0" layoutY="303.0">
+                                 <image>
+                                    <Image url="@icons/road.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="managementIcon113" fitHeight="36.0" fitWidth="35.0" layoutX="6.0" layoutY="361.0">
+                                 <image>
+                                    <Image url="@icons/booking.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </left>
+
+
+<!--               debut center-->
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+
+<!--                        home page -->
+                        <AnchorPane fx:id="home_page" layoutX="217.0" layoutY="152.0" prefHeight="555.0" prefWidth="1390.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="15.0" layoutY="13.0" prefHeight="519.0" prefWidth="1195.0" stylesheets="@../../../css/dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+<!--                                    start  modif-->
+                                    <AnchorPane layoutY="1.0" prefHeight="170.0" prefWidth="1195.0" stylesheets="@../../../css/dashboard.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <AnchorPane layoutX="34.0" layoutY="11.0" prefHeight="139.0" prefWidth="254.0" stylesheets="@../../../css/dashboard.css" AnchorPane.topAnchor="11.0">
+                                             <styleClass>
+                                                <String fx:value="nav-form" />
+                                                <String fx:value="card" />
+                                             </styleClass>
+                                             <children>
+                                                <Label layoutX="27.0" layoutY="27.0" prefHeight="19.0" prefWidth="147.0" text="Total Utilisateurs:" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="totalUtilisateursLabel" layoutX="177.0" layoutY="70.0" prefHeight="28.0" prefWidth="74.0" text="12" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="623.0" layoutY="13.0" prefHeight="139.0" prefWidth="254.0" stylesheets="@../../../css/dashboard.css" AnchorPane.topAnchor="11.0">
+                                             <styleClass>
+                                                <String fx:value="nav-form" />
+                                                <String fx:value="card" />
+                                             </styleClass>
+                                             <children>
+                                                <Label layoutX="42.0" layoutY="25.0" prefHeight="17.0" prefWidth="96.0" text="Total Trajets:" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="totalTrajetsLabel" layoutX="178.0" layoutY="70.0" prefHeight="28.0" prefWidth="74.0" text="22" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="324.0" layoutY="11.0" prefHeight="139.0" prefWidth="254.0" stylesheets="@../../../css/dashboard.css" AnchorPane.topAnchor="11.0">
+                                             <styleClass>
+                                                <String fx:value="nav-form" />
+                                                <String fx:value="card" />
+                                             </styleClass>
+                                             <children>
+                                                <Label layoutX="30.0" layoutY="27.0" prefHeight="19.0" prefWidth="121.0" text="Total Vehicules:" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="totalVehiculesLabel" layoutX="177.0" layoutY="71.0" prefHeight="28.0" prefWidth="74.0" text="4" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="916.0" layoutY="14.0" prefHeight="139.0" prefWidth="254.0" stylesheets="@../../../css/dashboard.css" AnchorPane.topAnchor="11.0">
+                                             <styleClass>
+                                                <String fx:value="nav-form" />
+                                                <String fx:value="card" />
+                                             </styleClass>
+                                             <children>
+                                                <Label layoutX="30.0" layoutY="28.0" prefHeight="19.0" prefWidth="127.0" text="Total Reservations:" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="totalReservationsLabel" layoutX="177.0" layoutY="70.0" prefHeight="28.0" prefWidth="74.0" text="30" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </AnchorPane>
+                                    <BarChart fx:id="home_chart" layoutX="59.0" layoutY="182.0" prefHeight="331.0" prefWidth="1109.0" title="Trajet par Conducteur">
+                                      <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                      </yAxis>
+                                    </BarChart>
+
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+
+<!--                        user form-->
+                        <AnchorPane fx:id="utilisateur_form" layoutX="196.0" layoutY="9.0" prefHeight="536.0" prefWidth="1164.0" stylesheets="@../../../css/dashboard.css" visible="false" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="9.0">
+                           <children>
+                              <AnchorPane layoutY="-6.0" prefHeight="536.0" prefWidth="1164.0" stylesheets="@../../../css/dashboard.css" AnchorPane.rightAnchor="-23.0" AnchorPane.topAnchor="-6.0">
+                                 <children>
+                                    <AnchorPane layoutX="196.0" layoutY="9.0" prefHeight="536.0" prefWidth="1164.0" stylesheets="@../../../css/dashboard.css" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="9.0">
+                                    <styleClass>
+                                       <String fx:value="white-bg" />
+                                       <String fx:value="shadow" />
+                                    </styleClass>
+                                    <children>
+                                    <TextField fx:id="cNom" layoutX="112.0" layoutY="297.0" prefHeight="26.0" prefWidth="289.0" styleClass="textfield" stylesheets="@../../../css/dashboard.css" />
+                                    <TextField fx:id="cEmail" layoutX="112.0" layoutY="392.0" prefHeight="26.0" prefWidth="289.0" styleClass="textfield" stylesheets="@../../../css/dashboard.css" />
+                                    <TextField fx:id="cPrenom" layoutX="112.0" layoutY="346.0" prefHeight="26.0" prefWidth="288.0" styleClass="textfield" stylesheets="@../../../css/dashboard.css" />
+                                    <Label layoutX="60.0" layoutY="299.0" prefHeight="17.0" prefWidth="51.0" text="Nom" />
+                                    <Label layoutX="60.0" layoutY="395.0" prefHeight="17.0" prefWidth="51.0" text="Email" />
+                                    <Label layoutX="59.0" layoutY="349.0" prefHeight="17.0" prefWidth="51.0" text="Prenom" />
+                                    <ComboBox fx:id="cGenre" layoutX="114.0" layoutY="434.0" onAction="#onSelected" prefHeight="26.0" prefWidth="289.0" promptText="choisir" />
+                                    <Label layoutX="61.0" layoutY="438.0" prefHeight="17.0" prefWidth="51.0" text="Role" />
+                                    <Button fx:id="btn_add" layoutX="864.0" layoutY="307.0" mnemonicParsing="false" onAction="#addUser" prefHeight="25.0" prefWidth="96.0" styleClass="add-btn" text="Ajouter" />
+                                    <Button fx:id="btn_update" layoutX="864.0" layoutY="352.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="25.0" prefWidth="96.0" styleClass="update-btn" text="Modifier" />
+                                    <Button fx:id="btn_delete" layoutX="865.0" layoutY="396.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="25.0" prefWidth="96.0" styleClass="delete-btn" text="Supprimer" />
+                                    <Button fx:id="btn_clear" layoutX="867.0" layoutY="439.0" mnemonicParsing="false" onAction="#clear" prefHeight="25.0" prefWidth="96.0" styleClass="clear-btn" text="Effacer" />
+                                    <Label fx:id="errorLabel" alignment="CENTER" graphicTextGap="8.0" layoutX="516.0" layoutY="357.0" prefHeight="35.0" prefWidth="195.0" textFill="#ee0707">
+                                       <font>
+                                          <Font size="23.0" />
+                                       </font>
+                                    </Label>
+                                    </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="197.0" layoutY="10.0" prefHeight="257.0" prefWidth="1161.0" stylesheets="@../../../css/dashboard.css" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="10.0">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <TableView fx:id="table" layoutX="64.0" layoutY="50.0" onMouseClicked="#charge" prefHeight="200.0" prefWidth="1027.0">
+                                             <columns>
+                                                <TableColumn fx:id="t_id" prefWidth="75.0" text="id" visible="false" />
+                                                <TableColumn fx:id="t_nom" prefWidth="208.74462890625" text="Nom" />
+                                                <TableColumn fx:id="t_prenom" prefWidth="206.34906005859375" text="Prenom" />
+                                                <TableColumn fx:id="t_email" prefWidth="290.15093994140625" text="Email" />
+                                                <TableColumn fx:id="t_mdp" minWidth="0.0" prefWidth="0.0" text="Mot de passe" />
+                                                <TableColumn fx:id="t_role" prefWidth="319.6044921875" text="Role" />
+                                             </columns>
+                                          </TableView>
+                                          <TextField fx:id="searchField" layoutX="138.0" layoutY="13.0" prefHeight="26.0" prefWidth="178.0" styleClass="search" />
+                                          <Button fx:id="searchButton" layoutX="316.0" layoutY="12.0" mnemonicParsing="false" onAction="#searchUser" prefHeight="26.0" prefWidth="56.0" styleClass="update-btn" text="GO" />
+                                          <Label layoutX="68.0" layoutY="12.0" prefHeight="26.0" prefWidth="72.0" text="Rechercher" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                              <TextField fx:id="cid" disable="true" layoutX="129.0" layoutY="46.0" visible="false" />
+                           </children>
+                        </AnchorPane>
+
+
+<!--                    ++++++++++ VEHICULE_FORM ++++++++++-->
+                        <AnchorPane fx:id="vehicule_form" layoutX="196.0" layoutY="9.0" prefHeight="536.0" prefWidth="1164.0" stylesheets="@../../../css/dashboard.css" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="9.0">
+                           <children>
+                              <AnchorPane layoutY="-6.0" prefHeight="536.0" prefWidth="1164.0" stylesheets="@../../../css/dashboard.css" AnchorPane.rightAnchor="-23.0" AnchorPane.topAnchor="-6.0">
+                                 <children>
+                                    <AnchorPane layoutX="196.0" layoutY="9.0" prefHeight="536.0" prefWidth="1164.0" stylesheets="@../../../css/dashboard.css" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="9.0">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <TextField fx:id="cImmatriculation" layoutX="154.0" layoutY="297.0" prefHeight="26.0" prefWidth="289.0" promptText="AA-999-AA" styleClass="textfield" stylesheets="@../../../css/dashboard.css" />
+                                          <TextField fx:id="cMarque" layoutX="154.0" layoutY="392.0" prefHeight="26.0" prefWidth="289.0" styleClass="textfield" stylesheets="@../../../css/dashboard.css" />
+                                          <TextField fx:id="cModele" layoutX="154.0" layoutY="346.0" prefHeight="26.0" prefWidth="288.0" styleClass="textfield" stylesheets="@../../../css/dashboard.css" />
+                                          <Label layoutX="60.0" layoutY="303.0" prefHeight="17.0" prefWidth="88.0" text="Immatriculation" />
+                                          <Label layoutX="60.0" layoutY="395.0" prefHeight="17.0" prefWidth="51.0" text="Marque" />
+                                          <Label layoutX="59.0" layoutY="349.0" prefHeight="17.0" prefWidth="51.0" text="Modele" />
+                                          <ComboBox fx:id="cConducteur" layoutX="156.0" layoutY="434.0" onAction="#onSelected" prefHeight="26.0" prefWidth="289.0" promptText="choisir" />
+                                          <Label layoutX="61.0" layoutY="438.0" prefHeight="17.0" prefWidth="78.0" text="Conducteur" />
+                                          <Button fx:id="btn_add_vehicule" layoutX="864.0" layoutY="307.0" mnemonicParsing="false" onAction="#addVehicule" prefHeight="25.0" prefWidth="96.0" styleClass="add-btn" text="Ajouter" />
+                                          <Button fx:id="btn_update_vehicule" layoutX="864.0" layoutY="352.0" mnemonicParsing="false" onAction="#updateVehicule" prefHeight="25.0" prefWidth="96.0" styleClass="update-btn" text="Modifier" />
+                                          <Button fx:id="btn_delete_vehicule" layoutX="865.0" layoutY="396.0" mnemonicParsing="false" onAction="#deleteVehicule" prefHeight="25.0" prefWidth="96.0" styleClass="delete-btn" text="Supprimer" />
+                                          <Button fx:id="btn_clear_vehicule" layoutX="867.0" layoutY="439.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="25.0" prefWidth="96.0" styleClass="clear-btn" text="Effacer" />
+                                          <Label fx:id="errorLabel_vehicule" alignment="CENTER" graphicTextGap="8.0" layoutX="516.0" layoutY="357.0" prefHeight="35.0" prefWidth="195.0" textFill="#ee0707">
+                                             <font>
+                                                <Font size="23.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="197.0" layoutY="10.0" prefHeight="257.0" prefWidth="1161.0" stylesheets="@../../../css/dashboard.css" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="10.0">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <TableView fx:id="table_vehicule" layoutX="64.0" layoutY="50.0" onMouseClicked="#chargeVehicule" prefHeight="200.0" prefWidth="1027.0">
+                                             <columns>
+                                                <TableColumn fx:id="t_id_vehicule" prefWidth="75.0" text="id" visible="false" />
+                                                <TableColumn fx:id="t_immatriculation" prefWidth="208.74462890625" text="Immatriculation" />
+                                                <TableColumn fx:id="t_marque" prefWidth="206.34906005859375" text="Marque" />
+                                                <TableColumn fx:id="t_modele" prefWidth="290.15093994140625" text="Modele" />
+                                                <TableColumn fx:id="t_conducteurID" minWidth="0.0" prefWidth="320.0" text="Conducteur" />
+                                             </columns>
+                                          </TableView>
+                                          <TextField fx:id="searchField_vehicule" layoutX="138.0" layoutY="13.0" prefHeight="26.0" prefWidth="178.0" styleClass="search" />
+                                          <Button fx:id="searchButton_vehicule" layoutX="316.0" layoutY="12.0" mnemonicParsing="false" onAction="#searchVehicule" prefHeight="26.0" prefWidth="56.0" styleClass="update-btn" text="GO" />
+                                          <Label layoutX="68.0" layoutY="12.0" prefHeight="26.0" prefWidth="72.0" text="Rechercher" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+<!--                              <TextField fx:id="cid" disable="true" layoutX="129.0" layoutY="46.0" visible="false" />-->
+                           </children>
+                        </AnchorPane>
+
+
+<!--                        ++++++++++ TRAJET_FORM ++++++++++-->
+                        <AnchorPane fx:id="trajet_form" layoutX="196.0" layoutY="9.0" prefHeight="536.0" prefWidth="1164.0" stylesheets="@../../../css/dashboard.css" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="9.0">
+                           <children>
+                              <AnchorPane layoutY="-6.0" prefHeight="536.0" prefWidth="1164.0" stylesheets="@../../../css/dashboard.css" AnchorPane.rightAnchor="-23.0" AnchorPane.topAnchor="-6.0">
+                                 <children>
+                                    <AnchorPane layoutX="196.0" layoutY="9.0" prefHeight="536.0" prefWidth="1164.0" stylesheets="@../../../css/dashboard.css" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="9.0">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <DatePicker fx:id="cDatedepart" layoutX="154.0" layoutY="272.0" prefHeight="26.0" prefWidth="289.0" />
+                                          <TextField fx:id="cPlacesdisponibles" layoutX="154.0" layoutY="307.0" prefHeight="26.0" prefWidth="289.0" styleClass="textfield" stylesheets="@../../../css/dashboard.css" />
+                                          <TextField fx:id="cPrix" layoutX="154.0" layoutY="348.0" prefHeight="26.0" prefWidth="289.0" styleClass="textfield" stylesheets="@../../../css/dashboard.css" />
+                                          <TextField fx:id="cVilledepart" layoutX="155.0" layoutY="397.0" prefHeight="26.0" prefWidth="288.0" styleClass="textfield" stylesheets="@../../../css/dashboard.css" />
+                                          <TextField fx:id="cVillearrivee" layoutX="155.0" layoutY="439.0" prefHeight="26.0" prefWidth="288.0" styleClass="textfield" stylesheets="@../../../css/dashboard.css" />
+                                          <Label layoutX="62.0" layoutY="279.0" prefHeight="17.0" prefWidth="88.0" text="Date Depart" />
+                                          <Label layoutX="36.0" layoutY="311.0" prefHeight="17.0" prefWidth="119.0" text="Places Disponibles" />
+                                          <Label layoutX="81.0" layoutY="353.0" prefHeight="17.0" prefWidth="51.0" text="Prix" />
+                                          <Label layoutX="59.0" layoutY="401.0" prefHeight="17.0" prefWidth="72.0" text="Ville Depart" />
+                                          <Label layoutX="57.0" layoutY="443.0" prefHeight="17.0" prefWidth="76.0" text="Ville Arrivee" />
+                                          <ComboBox fx:id="cConducteurTrajet" layoutX="680.0" layoutY="275.0" onAction="#onSelected" prefHeight="26.0" prefWidth="289.0" promptText="choisir" />
+                                          <Label layoutX="590.0" layoutY="279.0" prefHeight="17.0" prefWidth="78.0" text="Conducteur" />
+
+                                          <Button fx:id="btn_add_trajet" layoutX="1012.0" layoutY="307.0" mnemonicParsing="false" onAction="#addTrajet" prefHeight="25.0" prefWidth="96.0" styleClass="add-btn" text="Ajouter" />
+                                          <Button fx:id="btn_update_trajet" layoutX="1012.0" layoutY="349.0" mnemonicParsing="false" onAction="#updateTrajet" prefHeight="25.0" prefWidth="96.0" styleClass="update-btn" text="Modifier" />
+                                          <Button fx:id="btn_delete_trajet" layoutX="1012.0" layoutY="397.0" mnemonicParsing="false" onAction="#deleteTrajet" prefHeight="25.0" prefWidth="96.0" styleClass="delete-btn" text="Supprimer" />
+                                          <Button fx:id="btn_clear_trajet" layoutX="1012.0" layoutY="439.0" mnemonicParsing="false" onAction="#clearFieldsTrajet" prefHeight="25.0" prefWidth="96.0" styleClass="clear-btn" text="Effacer" />
+                                          <Label fx:id="errorLabel_trajet" alignment="CENTER" graphicTextGap="8.0" layoutX="485.0" layoutY="473.0" prefHeight="35.0" prefWidth="195.0" textFill="#ee0707">
+                                             <font>
+                                                <Font size="23.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="197.0" layoutY="10.0" prefHeight="257.0" prefWidth="1161.0" stylesheets="@../../../css/dashboard.css" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="10.0">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <TableView fx:id="table_trajet" layoutX="64.0" layoutY="50.0" onMouseClicked="#chargeTrajet" prefHeight="200.0" prefWidth="1027.0">
+                                             <columns>
+                                                <TableColumn fx:id="t_id_trajet" prefWidth="75.0" text="id" visible="false" />
+                                                <TableColumn fx:id="t_date" prefWidth="136.0" text="Date" />
+                                                <TableColumn fx:id="t_places" prefWidth="201.5" text="Places Dispo" />
+                                                <TableColumn fx:id="t_prix" prefWidth="194.5" text="Prix" />
+                                                <TableColumn fx:id="t_depart" minWidth="0.0" prefWidth="170.0" text="Depart" />
+                                                <TableColumn fx:id="t_arrivee" minWidth="0.0" prefWidth="170.0" text="Arrivee" />
+                                                <TableColumn fx:id="t_conducteur" minWidth="0.0" prefWidth="154.0" text="Conducteur" />
+
+                                             </columns>
+                                          </TableView>
+                                          <TextField fx:id="searchField_trajet" layoutX="138.0" layoutY="13.0" prefHeight="26.0" prefWidth="178.0" styleClass="search" />
+                                          <Button fx:id="searchButton_trajet" layoutX="316.0" layoutY="12.0" mnemonicParsing="false" onAction="#searchTrajet" prefHeight="26.0" prefWidth="56.0" styleClass="update-btn" text="GO" />
+                                          <Label layoutX="68.0" layoutY="12.0" prefHeight="26.0" prefWidth="72.0" text="Rechercher" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                              <!--                              <TextField fx:id="cid" disable="true" layoutX="129.0" layoutY="46.0" visible="false" />-->
+                           </children>
+                        </AnchorPane>
+
+
+
+<!--                        ++++++++++ RESERVATION_FORM ++++++++++&ndash;&gt;-->
+                        <AnchorPane fx:id="reservation_form" layoutX="196.0" layoutY="9.0" prefHeight="536.0" prefWidth="1164.0" stylesheets="@../../../css/dashboard.css" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="9.0">
+                           <children>
+                              <AnchorPane layoutY="-6.0" prefHeight="536.0" prefWidth="1164.0" stylesheets="@../../../css/dashboard.css" AnchorPane.rightAnchor="-23.0" AnchorPane.topAnchor="-6.0">
+                                 <children>
+                                    <AnchorPane layoutX="196.0" layoutY="9.0" prefHeight="536.0" prefWidth="1164.0" stylesheets="@../../../css/dashboard.css" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="9.0">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <DatePicker fx:id="cDatereservation" layoutX="154.0" layoutY="272.0" prefHeight="26.0" prefWidth="289.0" />
+                                          <TextField fx:id="cPlacesreservees" layoutX="154.0" layoutY="307.0" prefHeight="26.0" prefWidth="289.0" styleClass="textfield" stylesheets="@../../../css/dashboard.css" />
+                                          <ComboBox fx:id="cPassager" layoutX="585.0" layoutY="275.0" onAction="#onSelected" prefHeight="26.0" prefWidth="289.0" promptText="choisir" />
+                                          <Label layoutX="102.0" layoutY="379.0" prefHeight="17.0" prefWidth="78.0" text="Trajet" />
+                                          <TextField fx:id="cPlacesDisponibles" editable="false" layoutX="155.0" layoutY="426.0" prefHeight="26.0" prefWidth="288.0" styleClass="textfield" stylesheets="@../../../css/dashboard.css" />
+                                          <Label layoutX="56.0" layoutY="279.0" prefHeight="17.0" prefWidth="94.0" text="Date Reservation" />
+                                          <Label layoutX="36.0" layoutY="311.0" prefHeight="17.0" prefWidth="119.0" text="Nb Places reservees" />
+                                          <Label layoutX="512.0" layoutY="281.0" prefHeight="17.0" prefWidth="51.0" text="Passager" />
+                                          <ComboBox fx:id="cTrajet" layoutX="153.0" layoutY="374.0" onAction="#onSelected" prefHeight="26.0" prefWidth="289.0" promptText="choisir" />
+                                          <Label layoutX="102.0" layoutY="430.0" prefHeight="17.0" prefWidth="51.0" text="Avec" />
+                                          <Button fx:id="btn_add_reservation" layoutX="1012.0" layoutY="307.0" mnemonicParsing="false" onAction="#addReservation" prefHeight="25.0" prefWidth="96.0" styleClass="add-btn" text="Ajouter" />
+                                          <Button fx:id="btn_update_reservation" layoutX="1012.0" layoutY="349.0" mnemonicParsing="false" onAction="#updateReservation" prefHeight="25.0" prefWidth="96.0" styleClass="update-btn" text="Modifier" />
+                                          <Button fx:id="consultReservation_btn" layoutX="801.0" layoutY="440.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="25.0" prefWidth="164.0" styleClass="update-btn" text="Consulter Reservation" />
+                                          <Button fx:id="btn_delete_reservation" layoutX="1012.0" layoutY="397.0" mnemonicParsing="false" onAction="#deleteReservation" prefHeight="25.0" prefWidth="96.0" styleClass="delete-btn" text="Supprimer" />
+                                          <Button fx:id="btn_clear_reservation" layoutX="1012.0" layoutY="439.0" mnemonicParsing="false" onAction="#clearFieldsReservation" prefHeight="25.0" prefWidth="96.0" styleClass="clear-btn" text="Effacer" />
+                                          <Label fx:id="errorLabel_reservation" alignment="CENTER" graphicTextGap="8.0" layoutX="485.0" layoutY="473.0" prefHeight="35.0" prefWidth="195.0" textFill="#ee0707">
+                                             <font>
+                                                <Font size="23.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="197.0" layoutY="10.0" prefHeight="257.0" prefWidth="1161.0" stylesheets="@../../../css/dashboard.css" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="10.0">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <TableView fx:id="table_reservation" layoutX="64.0" layoutY="50.0" onMouseClicked="#chargeReservation" prefHeight="200.0" prefWidth="1027.0">
+                                             <columns>
+                                                <TableColumn fx:id="t_id_reservation" prefWidth="75.0" text="id" visible="false" />
+                                                <TableColumn fx:id="t_dateReservation" prefWidth="197.0" text="Date" />
+                                                <TableColumn fx:id="t_placesReservees" minWidth="0.0" prefWidth="237.0" text="Depart" />
+                                                <TableColumn fx:id="t_passager" minWidth="0.0" prefWidth="280.0" text="Arrivee" />
+                                                <TableColumn fx:id="t_trajet" minWidth="0.0" prefWidth="312.0" text="Conducteur" />
+
+                                             </columns>
+                                          </TableView>
+                                          <TextField fx:id="searchField_reservation" layoutX="138.0" layoutY="13.0" prefHeight="26.0" prefWidth="178.0" styleClass="search" />
+                                          <Button fx:id="searchButton_reservation" layoutX="316.0" layoutY="12.0" mnemonicParsing="false" onAction="#searchTrajet" prefHeight="26.0" prefWidth="56.0" styleClass="update-btn" text="GO" />
+                                          <Label layoutX="68.0" layoutY="12.0" prefHeight="26.0" prefWidth="72.0" text="Rechercher" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                              <!--                              <TextField fx:id="cid" disable="true" layoutX="129.0" layoutY="46.0" visible="false" />-->
+                           </children>
+                        </AnchorPane>
+
+
+
+<!--                        ++++++++++ Consulter RESERVATION_FORM ++++++++++-->
+                        <AnchorPane fx:id="consultation_form" layoutX="196.0" layoutY="9.0" prefHeight="536.0" prefWidth="1164.0" stylesheets="@../../../css/dashboard.css" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="9.0">
+                           <children>
+                              <AnchorPane layoutY="-6.0" prefHeight="536.0" prefWidth="1164.0" stylesheets="@../../../css/dashboard.css" AnchorPane.rightAnchor="-23.0" AnchorPane.topAnchor="-6.0">
+                                 <children>
+
+                                    <AnchorPane layoutX="196.0" layoutY="9.0" prefHeight="536.0" prefWidth="1164.0" stylesheets="@../../../css/dashboard.css" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="9.0">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <TableView fx:id="futureTable" layoutX="232.0" layoutY="342.0" prefHeight="150.0" prefWidth="700.0">
+                                             <columns>
+                                                <!-- Define columns similarly to the main table -->
+                                                <TableColumn fx:id="futureDateColumn" prefWidth="125.0" text="Date" />
+                                                <TableColumn fx:id="futurePassagerColumn" prefWidth="161.0" text="Passager" />
+                                                <TableColumn fx:id="futureTrajetColumn" prefWidth="412.0" text="Trajet" />
+                                             </columns>
+                                          </TableView>
+                                          <Text layoutX="49.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservations futures" wrappingWidth="185.63525390625">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </AnchorPane>
+                                    <TableView fx:id="upcomingTable" layoutX="233.0" layoutY="37.0" prefHeight="150.0" prefWidth="700.0">
+                                       <columns>
+                                          <TableColumn fx:id="upcomingDateColumn" prefWidth="134.0" text="Date" />
+                                          <TableColumn fx:id="upcomingPassagerColumn" prefWidth="150.0" text="Passager" />
+                                          <TableColumn fx:id="upcomingTrajetColumn" prefWidth="409.0" text="Trajet" />
+                                       </columns>
+                                    </TableView>
+                                    <TableView fx:id="pastTable" layoutX="233.0" layoutY="193.0" prefHeight="150.0" prefWidth="700.0">
+                                       <columns>
+                                          <TableColumn fx:id="pastDateColumn" prefWidth="130.0" text="Date" />
+                                          <TableColumn fx:id="pastPassagerColumn" prefWidth="156.0" text="Passager" />
+                                          <TableColumn fx:id="pastTrajetColumn" prefWidth="411.0" text="Trajet" />
+                                       </columns>
+                                    </TableView>
+                                    <Text layoutX="47.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation a venir" wrappingWidth="185.63525390625">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="47.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation passees" wrappingWidth="185.63525390625">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+
+
+
+                     </children>
+                  </AnchorPane>
+               </center>
+<!--               fin center-->
+
+
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
